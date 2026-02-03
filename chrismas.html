@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chrismas.css">
+    <title>Merry Christmas</title>
+</head>
+<body>
+    
+    <div class="leaves-container">
+        <!-- Snowflakes -->
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="leaf"><img src="img2/snow1.png"></div>
+    </div>
+    
+    <!-- Decorations -->
+    <img class="imgtree3" src="img2/giving2.png" alt="">
+    <img class="imgtree2" src="img2/new4.png" alt="">
+    
+    <section class="home" id="home">
+        <div class="home__container container grid">
+            <!-- Left Side - Image -->
+            <div class="home__image-section">
+                <img src="img2/home.png" alt="" class="home__img">
+            </div>
+            
+            <!-- Right Side - Content -->
+            <div class="home__content-section">
+                <h1 class="home__title">Merry Christmas and <br> Happy New Year!</h1>
+                <p class="home__description">
+                    Christmas and a new year is about to begin, 
+                    all good wishes and successes.
+                </p>
+                
+                <!-- Christmas Countdown Timer -->
+                <div class="countdown-container">
+                    <div class="countdown-title">Christmas Countdown <span class="celebration-icon">🎉</span></div>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <span id="days" class="countdown-number">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span id="hours" class="countdown-number">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span id="minutes" class="countdown-number">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span id="seconds" class="countdown-number">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <img class="imgtree " src="img2/img1.png" alt="">
+        </div>
+    </section>
+    
+    <script>
+        // Christmas Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const christmasDate = new Date(currentYear, 11, 25); // December 25th
+            
+            // If Christmas has passed this year, set for next year
+            if (now > christmasDate) {
+                christmasDate.setFullYear(currentYear + 1);
+            }
+            
+            const timeDifference = christmasDate - now;
+            
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Initialize countdown immediately
+        updateCountdown();
+    </script>
+</body>
+</html>
