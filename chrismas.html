@@ -9,83 +9,97 @@
 <body>
     
     <div class="leaves-container">
-        <!-- Snowflakes -->
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
-        <div class="leaf"><img src="img2/snow1.png"></div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
     </div>
     
-    <!-- Decorations -->
     <img class="imgtree3" src="img2/giving2.png" alt="">
     <img class="imgtree2" src="img2/new4.png" alt="">
     
     <section class="home" id="home">
         <div class="home__container container grid">
-            <!-- Left Side - Image -->
-            <div class="home__image-section">
-                <img src="img2/home.png" alt="" class="home__img">
-            </div>
-            
-            <!-- Right Side - Content -->
-            <div class="home__content-section">
-                <h1 class="home__title">Merry Christmas and <br> Happy New Year!</h1>
-                <p class="home__description">
-                    Christmas and a new year is about to begin, 
-                    all good wishes and successes.
-                </p>
+            <div class="main-card glass-card">
+                <div class="home__image-section">
+                    <img src="img2/home.png" alt="" class="home__img">
+                </div>
                 
-                <!-- Christmas Countdown Timer -->
-                <div class="countdown-container">
-                    <div class="countdown-title">Christmas Countdown <span class="celebration-icon">🎉</span></div>
-                    <div class="countdown">
-                        <div class="countdown-item">
-                            <span id="days" class="countdown-number">00</span>
-                            <span class="countdown-label">Days</span>
-                        </div>
-                        <div class="countdown-separator">:</div>
-                        <div class="countdown-item">
-                            <span id="hours" class="countdown-number">00</span>
-                            <span class="countdown-label">Hours</span>
-                        </div>
-                        <div class="countdown-separator">:</div>
-                        <div class="countdown-item">
-                            <span id="minutes" class="countdown-number">00</span>
-                            <span class="countdown-label">Minutes</span>
-                        </div>
-                        <div class="countdown-separator">:</div>
-                        <div class="countdown-item">
-                            <span id="seconds" class="countdown-number">00</span>
-                            <span class="countdown-label">Seconds</span>
+                <div class="home__content-section">
+                    <h1 class="home__title">Merry Christmas<br>and Happy New Year!</h1>
+                    <p class="home__description">
+                        Christmas and a new year is about to begin, 
+                        all good wishes and successes.
+                    </p>
+                    
+                    <div class="countdown-container">
+                        <div class="countdown-title">Christmas Countdown <span class="celebration-icon">🎉</span></div>
+                        <div class="countdown">
+                            <div class="countdown-item">
+                                <span id="days" class="countdown-number">00</span>
+                                <span class="countdown-label">Days</span>
+                            </div>
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-item">
+                                <span id="hours" class="countdown-number">00</span>
+                                <span class="countdown-label">Hours</span>
+                            </div>
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-item">
+                                <span id="minutes" class="countdown-number">00</span>
+                                <span class="countdown-label">Minutes</span>
+                            </div>
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-item">
+                                <span id="seconds" class="countdown-number">00</span>
+                                <span class="countdown-label">Seconds</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
             
-            <img class="imgtree " src="img2/img1.png" alt="">
+            <img class="imgtree" src="img2/img1.png" alt="">
         </div>
     </section>
     
     <script>
-        // Christmas Countdown Timer
+        const cursorGlow = document.createElement('div');
+        cursorGlow.className = 'cursor-glow';
+        document.body.appendChild(cursorGlow);
+
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX - 10 + 'px';
+            cursorGlow.style.top = e.clientY - 10 + 'px';
+        });
+
+        document.querySelectorAll('.glass-card, .button, .countdown-number').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorGlow.style.transform = 'scale(3)';
+                cursorGlow.style.background = 'radial-gradient(circle, rgba(8,217,214,0.6) 0%, transparent 70%)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorGlow.style.transform = 'scale(1)';
+                cursorGlow.style.background = 'radial-gradient(circle, rgba(255,46,99,0.4) 0%, transparent 70%)';
+            });
+        });
+
         function updateCountdown() {
             const now = new Date();
             const currentYear = now.getFullYear();
-            const christmasDate = new Date(currentYear, 11, 25); // December 25th
+            let christmasDate = new Date(currentYear, 11, 25);
             
-            // If Christmas has passed this year, set for next year
             if (now > christmasDate) {
                 christmasDate.setFullYear(currentYear + 1);
             }
@@ -97,16 +111,22 @@
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
             
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            daysEl.textContent = days.toString().padStart(2, '0');
+            hoursEl.textContent = hours.toString().padStart(2, '0');
+            minutesEl.textContent = minutes.toString().padStart(2, '0');
+            secondsEl.textContent = seconds.toString().padStart(2, '0');
+            
+            if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+                document.querySelector('.countdown-title').innerHTML = '🎄 Merry Christmas! 🎄';
+            }
         }
         
-        // Update countdown every second
         setInterval(updateCountdown, 1000);
-        
-        // Initialize countdown immediately
         updateCountdown();
     </script>
 </body>
